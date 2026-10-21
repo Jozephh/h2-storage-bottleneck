@@ -1,0 +1,17 @@
+name: b41fp
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - openpyxl
+  - coolprop
+  - jupyterlab
+  - pytest
+  - nbstripout
+  - pip
+  - pip:
+      - -e .

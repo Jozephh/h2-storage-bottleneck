@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "h2_bottleneck: nodal model of infrastructure limits on hydrogen storage in depleted gas fields"
+authors:
+  - family-names: Bradshaw
+    given-names: Joe
+version: 0.1.0
+repository-code: "https://github.com/Jozephh/h2-storage-bottleneck"
+date-released: 2026-10-21
+license: MIT

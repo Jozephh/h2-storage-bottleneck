@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+~$*.xlsx
+# third-party papers/PDFs: do not redistribute
+data/raw/*.pdf
+# large generated outputs (regenerate from code)
+results/**/*.csv
+!results/tables/validation_*.csv
