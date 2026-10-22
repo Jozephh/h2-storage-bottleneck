@@ -3,7 +3,7 @@ from h2_bottleneck import props
 
 
 def test_hydrogen_density_reference_value():
-    # NIST: H2 at 300 K, 100 bar ~ 7.8 kg/m3
+    # NIST: H2 at 300 K, 100 bar ~ 7.63 kg/m3
     assert props.rho(100e5, 300.0, "Hydrogen") == pytest.approx(7.8, abs=0.3)
 
 

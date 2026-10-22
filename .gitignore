@@ -9,3 +9,6 @@ data/raw/*.pdf
 # large generated outputs (regenerate from code)
 results/**/*.csv
 !results/tables/validation_*.csv
+# editor settings and build artefacts
+.vscode/
+*.egg-info/
