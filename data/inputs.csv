@@ -1,0 +1,23 @@
+parameter,symbol,base,low,high,units,source,year,notes
+reservoir_pressure_initial,p_i,4533,,,psia,Scafidi et al. Table 1 (Stuart 1991),2023,
+reservoir_temperature,T_res,91.5,,,degC,Heinemann et al. p.51,2025,Scafidi gives 656.67 R (91.7 C)
+permeability,k,75,2,184,mD,Scafidi et al. Table 1; range Scafidi et al. 2021,2023,
+porosity,phi,0.125,,,-,Scafidi et al. Table 1,2023,
+net_thickness,h,95,80,117,ft,Scafidi Table 1; range Centrica 2006,2023,
+depth,L_well,9000,,,ft,Scafidi et al. Table 1,2023,
+GIIP,GIIP,366000,,,MMSCF,Scafidi et al. Table 1,2023,methane
+number_of_wells,N_w,24,13,29,-,CMA 2017 para 1.8a; Heinemann 2025,2017,low = ~half 47/3B wells impaired (CMA 2.9)
+tubing_diameter,d_t,,2,8,in,UNKNOWN - test 2/4/6/8,,data gap
+skin,s,1,0,5,-,Scafidi et al. Table 2 (assumed),2023,
+drainage_radius,r_e,1500,,,m,Scafidi et al. Table 2 (assumed),2023,
+pipeline_length,L_p,29,,,km,Centrica 2006 facilities slide,2006,
+pipeline_diameter,D_p,36,,,in,Centrica 2006; Centrica 2026 p.8,2006,nominal - wall thickness gap
+pipe_roughness,eps,,,,m,DATA GAP,,
+easington_pressure,p_grid,,,,bar,DATA GAP,,
+max_injection_bhp,p_bhp_max,250,,,bar,Heinemann et al. p.50 (reservoir ~250 bar),2025,check fracture limit
+compressor_discharge_limit,p_dis_max,200,,,bar,van Gessel et al. p.46 (oil-free recip.),2025,
+compressor_isentropic_eff,eta_c,0.80,0.70,0.85,-,ASSUMED,,
+max_stage_ratio,r_max,3.0,2.5,3.5,-,ASSUMED,,
+installed_compression_power,W_max,,,,MW,DATA GAP,,
+hhv_hydrogen,HHV_H2,39.4,,,kWh/kg,Scafidi et al. 2023 Table 2,2023,cross-check Bossel 2003 Table A: 141.9 MJ/kg
+hhv_methane,HHV_CH4,15.4,,,kWh/kg,Scafidi et al. 2023 Table 2,2023,cross-check Bossel 2003 Table A: 55.5 MJ/kg
