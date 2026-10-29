@@ -20,11 +20,11 @@ IDs follow the validation ladder in `nodal_model_design.md` (V1–V6).
 
 | ID | Date | Commit | Check | Reference value (source) | Obtained | Tolerance | Result | Notes |
 |---|---|---|---|---|---|---|---|---|
-| V1.1 | 2026-10-22 | | H2 density, 300 K, 100 bar | 7.63 kg/m³ (NIST Chemistry WebBook; Leachman et al., 2009) | | ±0.3 kg/m³ | Pass | `test_props.py` |
-| V1.2 | 2026-10-22 | | H2 density at standard conditions | 0.085 kg/Sm³ at 15 °C, 1 atm | | ±0.002 | Pass | `test_props.py` |
-| V1.3 | 2026-10-22 | | Z at 250 bar, 91.5 °C | Z(H2) > 1, Z(CH4) < 1 | | Sign | Pass | `test_props.py` |
-| V1.4 | 2026-10-22 | | GIIP unit conversion | 366,000 MMSCF ≈ 10.36 × 10⁹ Sm³ | | ±0.05 × 10⁹ | Pass | `test_inputs.py` |
-| V1.5 | 2026-10-25 | | Energy volume multiplier, H2 vs CH4 | About 3× (DESNZ, 2023, p.13) | 3.19–3.65× over 20–300 bar | — | Consistent | Notebook 01. Higher than 3× at reservoir pressure because Z(H2) > 1 and Z(CH4) < 1 |
+| V1.1 | 2026-10-22 | 62b3661 | H2 density, 300 K, 100 bar | 7.63 kg/m³ (NIST Chemistry WebBook; Leachman et al., 2009) | | ±0.3 kg/m³ | Pass | `test_props.py` |
+| V1.2 | 2026-10-22 | 62b3661 | H2 density at standard conditions | 0.085 kg/Sm³ at 15 °C, 1 atm | | ±0.002 | Pass | `test_props.py` |
+| V1.3 | 2026-10-22 | 62b3661 | Z at 250 bar, 91.5 °C | Z(H2) > 1, Z(CH4) < 1 | | Sign | Pass | `test_props.py` |
+| V1.4 | 2026-10-22 | 62b3661 | GIIP unit conversion | 366,000 MMSCF ≈ 10.36 × 10⁹ Sm³ | | ±0.05 × 10⁹ | Pass | `test_inputs.py` |
+| V1.5 | 2026-10-25 | 62b3661 | Energy volume multiplier, H2 vs CH4 | About 3× (DESNZ, 2023, p.13) | 3.19–3.65× over 20–300 bar | — | Consistent | Notebook 01. Higher than 3× at reservoir pressure because Z(H2) > 1 and Z(CH4) < 1 |
 | V1.6 | 2026-10-29 | e35c617 | Material balance round trip: CH4 tank at p_i | 366 bcf at 312.5 bar (Scafidi et al., 2023, Table 1) | 366.0 bcf at 312.5 bar | 10⁻⁶ relative | Pass | Notebook 02; `test_reservoir.py` |
 | V1.7 | 2026-10-29 | e35c617 | p/Z linear in inventory (closed tank) | Constant ratio (Lee and Wattenbarger, 1996) | Varies by 1.2 × 10⁻⁷ % (CH4), 1.3 × 10⁻¹³ % (H2) | 10⁻⁶ relative | Pass | Notebook 02, Figure 02a |
 | V1.8 | 2026-10-29 | e35c617 | Mass conservation over a cycle | Returns to 180.00 bar | 180.00 bar | 10⁻⁹ relative | Pass | Notebook 02, Figure 02 cycle |
