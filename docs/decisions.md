@@ -16,13 +16,18 @@ Format: **ID – decision** – reason (alternative considered). Date added.
 - **A1 – Pure gases, no H2/CH4 mixing** – as Scafidi et al. (2023); limitation for discussion. 2026-10-22
 - **A2 – Closed volumetric reservoir, no aquifer** – Rough is a closed gas field. 2026-10-22
 - **A4 – BHP limits fixed at the historic natural-gas envelope** – as Heinemann et al. (2025); treated as a reservoir constraint, not infrastructure. 2026-10-29
+- **A6 – Non-Darcy D recalculated for H2** – D ∝ M/μ (Lee and Wattenbarger, 1996; Scafidi et al., 2023, eq. 5); Heinemann et al. (2025) kept methane values. 2026-10-30
 - **A8 – Isothermal reservoir at 91.5 °C** – injected gas reaches reservoir temperature near the well (Heinemann et al., 2025, s.2.2) (alternative: thermal tank model). 2026-10-29
 - **A9 – Single tank, pore volume fixed from methane GIIP at p_i, reused for hydrogen; rock and water compressibility neglected** – data available only as GIIP (Scafidi et al., 2023, Table 1). Limitation: Heinemann et al. (2025) show pressure support from the Carboniferous underburden and compartmentalisation (alternative: two-tank model as a sensitivity case). 2026-10-29
 - **A10 – Material balance solved exactly from density** – p(ρ, T) from the reference equation of state, so p/Z needs no iteration (Lee and Wattenbarger, 1996). 2026-10-29
+- **A11 – Field-average formation properties for every well** – k = 75 mD, h = 95 ft (Scafidi et al., 2023, Table 1); per-well skin and D carry the differences between wells. Absolute permeability used (no relative permeability). 2026-10-30
+- **A12 – Pseudosteady-state radial inflow, circular drainage area, r_e = 1500 m** – Houpeurt (1959); Lee and Wattenbarger (1996); r_e as Scafidi et al. (2023). 2026-10-30
+- **A13 – Reference gas for Table 1 D-factors taken as methane** – Heinemann's in-situ gas was modelled as 82 % CH4 / 18 % C2H6; methane properties used for scaling. 2026-10-30
 
 ## Corrections
 - **X1 – inputs.py rejects unknown units** – unconverted HHV gave zero energy values. 2026-10-22
 - **X2 – MMSCF factor (28,316.85 m³) is at 60 °F, 14.696 psia, not 15 °C, 1 atm** – about 0.2 % on GIIP and the pore volume; accepted and logged, not corrected. 2026-10-29
+
 
 
 
