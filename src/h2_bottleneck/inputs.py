@@ -24,3 +24,24 @@ def load(case="base"):
             raise KeyError(f"Unknown units '{units}' for {r['parameter']} in inputs.csv")
         out[r["parameter"]] = float(v) * TO_SI[units]
     return out
+
+
+KSCF_TO_SM3 = 28.3168          # 1000 standard cubic feet (60 °F, 1 atm) in Sm3
+
+
+def load_wells():
+    """Per-well data from Heinemann et al. (2025) Table 1, converted to SI.
+
+    Columns: well, d_wellbore (m), skin (-), D (s/Sm3), p_bhp_max (Pa), p_bhp_min (Pa).
+    D is the non-Darcy coefficient: D * q is dimensionless when q is in Sm3/s.
+    Source units are day/kscf, i.e. D * q with q in kscf/day.
+    """
+    df = pd.read_csv(ROOT / "data" / "wells.csv")
+    return pd.DataFrame({
+        "well": df["well"],
+        "d_wellbore": df["wellbore_diameter_m"],
+        "skin": df["skin"],
+        "D": df["D_day_per_kscf"] * 86400 / KSCF_TO_SM3,
+        "p_bhp_max": df["bhp_max_bar"] * 1e5,
+        "p_bhp_min": df["bhp_min_bar"] * 1e5,
+    })
