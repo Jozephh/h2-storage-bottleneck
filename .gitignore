@@ -6,6 +6,7 @@ Thumbs.db
 ~$*.xlsx
 # third-party papers/PDFs: do not redistribute
 data/raw/*.pdf
+data/raw/SP528-2022-71_si_*
 # large generated outputs (regenerate from code)
 results/**/*.csv
 !results/tables/validation_*.csv
