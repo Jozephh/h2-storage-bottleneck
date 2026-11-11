@@ -7,10 +7,11 @@ Format: **ID – decision** – reason (alternative considered). Date added.
 - **C2 – Standard conditions 15 °C, 1 atm** – UK convention; other conventions (e.g. 60 °F, Scafidi et al., 2023) converted before comparison. 2026-10-22
 - **C3 – Standard conditions differ between sources** – Heinemann uses 60 °F and 1 atm (kscf; H2 0.0851 kg/m³). D-factors are converted on that basis. 2026-10-29
 
-## Data
+## Data & Decisions
 - **D1 – HHVs from Scafidi et al. (2023) Table 2** – consistency with validation tool (cross-check Bossel, 2003). 2026-10-22
 - **D2 – CoolProp reference equations of state** – same as Scafidi et al. (2023). 2026-10-22
 - **D3 – Per-well data from Heinemann et al. (2025) Table 1** – wellbore diameter, skin, D-factor and BHP limits for the 29 wells modelled there. Diameters are wellbore, not tubing (tubing size remains a data gap). 2026-10-29
+- **D4 – Tubing base case 7 in, range 2–8 in** – Rough's tubing size is unpublished (data gap); 7 in is the tubing at Hatfield Moors and Grijpskerk cited by Scafidi et al. (2023); the 2, 4, 6 and 8 in sizes they tested form the sensitivity. Roughness 0.0006 in (Scafidi et al., 2023). 2026-11-11
 
 ## Assumptions
 - **A1 – Pure gases, no H2/CH4 mixing** – as Scafidi et al. (2023); limitation for discussion. 2026-10-22
@@ -23,6 +24,10 @@ Format: **ID – decision** – reason (alternative considered). Date added.
 - **A11 – Field-average formation properties for every well** – k = 75 mD, h = 95 ft (Scafidi et al., 2023, Table 1); per-well skin and D carry the differences between wells. Absolute permeability used (no relative permeability). 2026-10-30
 - **A12 – Pseudosteady-state radial inflow, circular drainage area, r_e = 1500 m** – Houpeurt (1959); Lee and Wattenbarger (1996); r_e as Scafidi et al. (2023). 2026-10-30
 - **A13 – Reference gas for Table 1 D-factors taken as methane** – Heinemann's in-situ gas was modelled as 82 % CH4 / 18 % C2H6; methane properties used for scaling. 2026-10-30
+- **A14 – Tubing temperature: arithmetic average of wellhead (15 °C, assumed) and reservoir temperature** – as Scafidi et al. (2023); no Joule–Thomson or wellbore heat-transfer model (alternative: Ramey-type heat transfer as a sensitivity case). 2026-11-11
+- **A15 – One tubing string, the same in every well, vertical (MD = TVD = 9000 ft)** – completions unpublished; as Scafidi et al. (2023). 2026-11-11
+- **A16 – Kinetic-energy (acceleration) term neglected in the tubing** – as Scafidi et al. (2023) and Lee and Wattenbarger (1996). 2026-11-11
+- **A17 – Tubing solved with the average temperature and Z method as printed by Scafidi et al. (2023), not their supplementary code** – the code departs from the printed equations in four places (validation/scafidi2023.py); RK4 integration used as the reference (V2.3). 2026-11-11
 
 ## Corrections
 - **X1 – inputs.py rejects unknown units** – unconverted HHV gave zero energy values. 2026-10-22
