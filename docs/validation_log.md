@@ -33,13 +33,20 @@ IDs follow the validation ladder in `nodal_model_design.md` (V1–V6).
 | V1.11 | 2026-10-29 | e35c617 | Static H2 working gas, 180–275 bar | 7.5 TWh working, 16.0 TWh cushion, ratio 2.1 (Heinemann et al., 2025) | 8.49 TWh, 18.44 TWh, ratio 2.17 | Same order | Consistent | Both about 13–15 % high with the ratio within 3 %, so the difference is a larger connected volume (decision A9), not deliverability. Part of V4 |
 | V1.12 | 2026-10-29 | e35c617 | Total stored H2 energy against Amid et al. (2016) | 25.2 TWh, lower heating value (Amid et al., 2016, s.4) | About 25.4 TWh LHV (30.07 TWh HHV at p_i) | — | Consistent | Their 42 % uses a deliverability-set window, so only the totals are compared. Check against the published version |
 
-## V2–V6: To come
+## V2: Well model (inflow and tubing)
+
+| ID | Date | Commit | Check | Reference value (source) | Obtained | Tolerance | Result | Notes |
+|---|---|---|---|---|---|---|---|---|
+| V2.0 | 2026-11-11 | cb53c93 | Rebuild of Scafidi et al. (2023) supplementary code reproduces their published Rough CGRs (30 wells, CH4 and H2, 2–8 in) | Published values (Scafidi et al., 2023, si_002; held in `PUBLISHED_ROUGH_30`) | Maximum difference 0.02 percentage points over 8 cases | ±0.5 points | Pass | `validation/scafidi2023.py`; notebook 04b. Confirms the rebuild is faithful, so the differences below are attributable |
+| V2.1 | 2026-11-11 | cb53c93 | Rough, 30 wells, 2 in: cushion gas requirement | Scafidi et al. (2023) equations as printed (their code with the four departures corrected): CH4 86.7 %, H2 65.3 % | CH4 87.3 %, H2 66.3 % (generic well) | ±2 points | Pass | Published 69.6 % / 35.5 %. Difference due to temperature in kelvin in eq. 12, ln in eqs. 3 and 11, specific gravity at 100 bar (`04b_scafidi_attribution.csv`). With the 29 Heinemann wells: 87.3 % / 66.2 % (tubing-limited, so well data have little effect) |
+| V2.2 | 2026-11-11 | cb53c93 | Rough, 30 wells, 8 in: cushion gas requirement | Corrected, as V2.1: CH4 24.3 %, H2 4.9 % | CH4 24.5 %, H2 3.7 % (generic well) | ±2 points | Pass | Published 35.0 % / 13.6 %. Largest difference over all four sizes 1.2 points (CH4, 4 in). With the 29 Heinemann wells: 33.3 % / 8.7 % (inflow-limited, so well data matter) |
+| V2.3 | 2026-11-11 | cb53c93 | Average temperature and Z method (eq. 12) against RK4 integration, WHP 150 bar, both gases, 7 in and 2 in | RK4 with local properties, 60 segments (converged: 10 vs 60 segments < 0.1 mbar) | 7 in: H2 ≤ 0.46 %, CH4 ≤ 2.31 % of gas column (≤ 0.69 bar); 2 in: H2 ≤ 0.60 %, CH4 up to 4.61 % (1.37 bar, injection 0.2 million Sm³/d) | 4 % of gas column at 7 in (base case) | Pass | Also enforced by `test_average_method_against_rk4`. Average method slightly underestimates the CH4 column (−0.53 bar static). Larger CH4 error in 2 in injection is expected: friction nearly cancels the column, so small errors in each term are amplified |
+| V2.4 | 2026-11-11 | cb53c93 | Scafidi et al. (2023) Table 4 field cases with their code corrected (CH4, 8 in) | Reported actual CGR: Grijpskerk 88.5 % (Juez-Larré et al., 2016); Hatfield Moors 66.7 % (Chaudry et al., 2008) | Grijpskerk (1 well): 88.6 % as published → 87.9 % corrected. Hatfield Moors (2 wells): 68.0 % → 48.5 % | — | Consistent | Grijpskerk agreement survives correction; Hatfield Moors agreement does not, suggesting compensating differences in the published code. Their model only; not this model |
+
+## V3–V6: To come
 
 | ID | Check | Reference value (source) | Result |
 |---|---|---|---|
-| V2.1 | Rough CH4, 30 wells, 2 in tubing: cushion gas | About 70 % (Scafidi et al., 2023, Table 4); check standard conditions first (decision C3) | Pending |
-| V2.2 | Rough CH4, 30 wells, 8 in tubing: cushion gas | About 35 % (Scafidi et al., 2023, Table 4) | Pending |
-| V2.3 | Gas column, CH4 and H2, 2.7 km | Hand calculation, ∫ρg dz | Pending |
 | — | Pipeline against a worked example | Menon (2005), general flow equation example | Pending |
 | — | Compressor single stage against ideal-gas polytropic formula | Hand calculation | Pending |
 | V3 | Field CH4 rates | 44.8 million Sm³/d withdrawal; about 15 average injection (Centrica, 2006) | Pending |
