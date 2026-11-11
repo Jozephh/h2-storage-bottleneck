@@ -1,0 +1,7 @@
+case,2_in,8_in
+their code as published,69.58672482332395,34.96944226343371
+fix only: temperature in kelvin in eq. 12,79.34754537352175,35.3674161775287
+fix only: natural log in eq. 11 (friction factor),81.7315032589029,35.60925823308331
+fix only: natural log in eq. 3 (inflow coefficient),67.48755955941922,22.125659892417712
+fix only: specific gravity at 100 bar,66.6074980703511,33.56408854061709
+all four fixed,86.74577684623715,24.34711735235768
